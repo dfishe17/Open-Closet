@@ -1,0 +1,113 @@
+/* Animated Info Cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.animated-card {
+  width: 100%;
+  height: 254px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+.animated-card.black {
+  background: linear-gradient(45deg, #333, #555);
+}
+
+.animated-card.gray {
+  background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+}
+
+.animated-card.dark-gray {
+  background: linear-gradient(45deg, #555, #777);
+}
+
+.animated-card.blush {
+  background: linear-gradient(45deg, #ffedee, #ffd9dc);
+}
+
+.animated-card.sage {
+  background: linear-gradient(45deg, #e8f0e0, #d5e8c6);
+}
+
+.animated-card.taupe {
+  background: linear-gradient(45deg, #e8e6df, #d8d5c8);
+}
+
+.card-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.icon-container {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.black .icon-container,
+.dark-gray .icon-container {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.tip {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.black .tip,
+.dark-gray .tip {
+  color: white;
+}
+
+.second-text {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.black .second-text,
+.dark-gray .second-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .animated-card {
+    height: 220px;
+  }
+}

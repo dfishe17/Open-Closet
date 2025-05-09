@@ -1,0 +1,301 @@
+/* Remove any @import statements from here */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Color palette */
+    --charcoal: 210 20% 25%; /* Dark gray, almost black */
+    --beige: 45 33% 91%; /* Light, warm neutral */
+    --taupe: 24 9% 28%; /* Grayish-brown */
+    --ivory: 60 33% 99%; /* Off-white */
+    --blush: 350 60% 75%; /* Soft, pale pink */
+    --sage: 120 15% 61%; /* Grayish-green */
+
+    --background: var(--ivory);
+    --foreground: var(--charcoal);
+
+    --card: var(--ivory);
+    --card-foreground: var(--charcoal);
+
+    --popover: var(--ivory);
+    --popover-foreground: var(--charcoal);
+
+    --primary: var(--sage);
+    --primary-foreground: var(--ivory);
+
+    --secondary: var(--beige);
+    --secondary-foreground: var(--taupe);
+
+    --muted: var(--beige);
+    --muted-foreground: var(--taupe);
+
+    --accent: var(--blush);
+    --accent-foreground: var(--ivory);
+
+    --destructive: var(--blush);
+    --destructive-foreground: var(--ivory);
+
+    --border: var(--taupe);
+    --input: var(--taupe);
+    --ring: var(--sage);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: var(--beige);
+    --sidebar-foreground: var(--charcoal);
+    --sidebar-border: var(--taupe);
+    --sidebar-accent: var(--sage);
+    --sidebar-accent-foreground: var(--ivory);
+    --sidebar-ring: var(--charcoal);
+  }
+
+  .dark {
+    --background: var(--charcoal);
+    --foreground: var(--ivory);
+
+    --card: var(--charcoal);
+    --card-foreground: var(--ivory);
+
+    --popover: var(--charcoal);
+    --popover-foreground: var(--ivory);
+
+    --primary: var(--sage);
+    --primary-foreground: var(--ivory);
+
+    --secondary: var(--taupe);
+    --secondary-foreground: var(--ivory);
+
+    --muted: var(--taupe);
+    --muted-foreground: var(--beige);
+
+    --accent: var(--blush);
+    --accent-foreground: var(--ivory);
+
+    --destructive: 350 89% 50%;
+    --destructive-foreground: var(--ivory);
+
+    --border: var(--beige);
+    --input: var(--beige);
+    --ring: var(--sage);
+
+    --sidebar-background: var(--taupe);
+    --sidebar-foreground: var(--ivory);
+    --sidebar-border: var(--beige);
+    --sidebar-accent: var(--sage);
+    --sidebar-accent-foreground: var(--ivory);
+    --sidebar-ring: var(--ivory);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom color classes */
+.bg-charcoal {
+  background-color: hsl(210, 20%, 25%);
+}
+.bg-beige {
+  background-color: hsl(45, 33%, 91%);
+}
+.bg-taupe {
+  background-color: hsl(24, 9%, 28%);
+}
+.bg-ivory {
+  background-color: hsl(60, 33%, 99%);
+}
+.bg-blush {
+  background-color: hsl(350, 60%, 75%);
+}
+.bg-sage {
+  background-color: hsl(120, 15%, 61%);
+}
+
+.text-charcoal {
+  color: hsl(210, 20%, 25%);
+}
+.text-beige {
+  color: hsl(45, 33%, 91%);
+}
+.text-taupe {
+  color: hsl(24, 9%, 28%);
+}
+.text-ivory {
+  color: hsl(60, 33%, 99%);
+}
+.text-blush {
+  color: hsl(350, 60%, 75%);
+}
+.text-sage {
+  color: hsl(120, 15%, 61%);
+}
+
+.border-charcoal {
+  border-color: hsl(210, 20%, 25%);
+}
+.border-beige {
+  border-color: hsl(45, 33%, 91%);
+}
+.border-taupe {
+  border-color: hsl(24, 9%, 28%);
+}
+.border-ivory {
+  border-color: hsl(60, 33%, 99%);
+}
+.border-blush {
+  border-color: hsl(9%, 28%);
+}
+.border-ivory {
+  border-color: hsl(60, 33%, 99%);
+}
+.border-blush {
+  border-color: hsl(350, 60%, 75%);
+}
+.border-sage {
+  border-color: hsl(120, 15%, 61%);
+}
+
+/* Custom hover animations */
+@layer components {
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+  }
+
+  .hover-lift-lg {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg;
+  }
+
+  .hover-grow {
+    @apply transition-all duration-300 hover:scale-[1.02];
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Animated Info Cards */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .animated-card {
+    width: 100%;
+    height: 254px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .animated-card.black {
+    background: linear-gradient(45deg, #333, #555);
+  }
+
+  .animated-card.gray {
+    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+  }
+
+  .animated-card.dark-gray {
+    background: linear-gradient(45deg, #555, #777);
+  }
+
+  .animated-card.blush {
+    background: linear-gradient(45deg, #ffedee, #ffd9dc);
+  }
+
+  .animated-card.sage {
+    background: linear-gradient(45deg, #e8f0e0, #d5e8c6);
+  }
+
+  .animated-card.taupe {
+    background: linear-gradient(45deg, #e8e6df, #d8d5c8);
+  }
+
+  .card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .icon-container {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .black .icon-container,
+  .dark-gray .icon-container {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .tip {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #333;
+  }
+
+  .black .tip,
+  .dark-gray .tip {
+    color: white;
+  }
+
+  .second-text {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .black .second-text,
+  .dark-gray .second-text {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Font classes */
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-alegreya {
+  font-family: var(--font-alegreya);
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
